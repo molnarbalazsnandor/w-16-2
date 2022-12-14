@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Person from "./components/Person";
 
 function App() {
   const [people, setPeople] = useState([]);
@@ -12,7 +13,18 @@ function App() {
 
   console.log(people);
 
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      {people.map((person, i) => (
+        <Person
+          key={i}
+          name={person.name}
+          height={person.height}
+          mass={person.mass}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default App;
